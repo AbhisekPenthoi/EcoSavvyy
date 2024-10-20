@@ -1,0 +1,42 @@
+import React from 'react';
+
+const CarbonFootprintForm = ({ energyConsumption, setEnergyConsumption, fuelUsage, setFuelUsage, methaneEmissions, setMethaneEmissions, handleSubmit, error }) => {
+  return (
+    <form onSubmit={handleSubmit} className="calculator-form">
+      <label htmlFor="energy-consumption">
+        Energy Consumption (kWh):
+        <input
+          type="number"
+          id="energy-consumption"
+          value={energyConsumption}
+          onChange={(e) => setEnergyConsumption(e.target.value)}
+          placeholder="Enter energy consumption"
+        />
+      </label>
+      <label htmlFor="fuel-usage">
+        Fuel Usage (liters):
+        <input
+          type="number"
+          id="fuel-usage"
+          value={fuelUsage}
+          onChange={(e) => setFuelUsage(e.target.value)}
+          placeholder="Enter fuel usage"
+        />
+      </label>
+      <label htmlFor="methane-emissions">
+        Methane Emissions (kg):
+        <input
+          type="number"
+          id="methane-emissions"
+          value={methaneEmissions}
+          onChange={(e) => setMethaneEmissions(e.target.value)}
+          placeholder="Enter methane emissions"
+        />
+      </label>
+      <button type="submit" className="submit-button">Calculate</button>
+      {error && <div className="result error">{error}</div>}
+    </form>
+  );
+};
+
+export default CarbonFootprintForm;
